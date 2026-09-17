@@ -1,18 +1,10 @@
-::: {align="center"}
 # 🍎 Fruits Image Detection
 
 **Object Detection & Classification of Fruits using YOLO26n**
 
-```{=html}
-<p>
-```
-`<img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">`{=html}
-`<img src="https://img.shields.io/badge/Ultralytics-YOLO-111111?style=flat-square" alt="Ultralytics YOLO">`{=html}
-`<img src="https://img.shields.io/badge/mAP50-89.6%25-success?style=flat-square" alt="mAP50">`{=html}
-```{=html}
-</p>
-```
-:::
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white)
+![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLO-111111?style=flat-square)
+![mAP50](https://img.shields.io/badge/mAP50-89.6%25-success?style=flat-square)
 
 ------------------------------------------------------------------------
 
@@ -93,7 +85,7 @@ test
 Nama class dibaca dari `data.yaml`. Project juga menyediakan fallback
 class names apabila `data.yaml` tidak dapat dibaca.
 
-### Class yang digunakan
+### Class yang Digunakan
 
     \# Class
   ---- ------------
@@ -136,7 +128,7 @@ class names apabila `data.yaml` tidak dapat dibaca.
   Spesifikasi            Detail
   ---------------------- ---------------------------------
   Device                 Lenovo IdeaPad Slim 14
-  Operating System       Windows
+  Operating System       Windows 11
   Processor              Intel Core i5 Generasi ke-11
   RAM                    16 GB
   Local GPU              Tidak menggunakan GPU dedicated
@@ -161,7 +153,11 @@ class names apabila `data.yaml` tidak dapat dibaca.
 fruits-image-detection/
 │
 ├── images/
-│   └── 2.jpg
+│   ├── 1.jpg
+│   ├── 2.jpg
+│   ├── 3.jpg
+│   ├── 4.jpg
+│   └── pisang.jpg
 │
 ├── models/
 │   └── yolo26n_models.pt
@@ -172,7 +168,7 @@ fruits-image-detection/
 ├── inference.py
 ├── LICENSE
 ├── requirements.txt
-└── tutorial.txt
+└── README.md
 ```
 
 ### Penjelasan
@@ -603,15 +599,4 @@ Project / notebook dibuat pada:
 
 ------------------------------------------------------------------------
 
-## 📄 License
-
-Project ini menyertakan file `LICENSE`.
-
-Silakan merujuk langsung ke file tersebut untuk ketentuan penggunaan,
-distribusi, dan modifikasi project.
-
-------------------------------------------------------------------------
-
-::: {align="center"}
 **Fruits Image Detection · YOLO26n · Python**
-:::
