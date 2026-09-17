@@ -31,6 +31,16 @@ Project mencakup seluruh alur mulai dari **dataset preparation, auto-labeling, q
 
 ---
 
+### 🏷️ Contoh Label Bounding Box
+
+![Contoh hasil label bounding box saat training](screenshots/training-label-boxing.png)
+
+### 🔎 Contoh Hasil Prediksi
+
+![Contoh hasil prediksi inference](screenshots/inference-result.png)
+
+---
+
 ## 📊 Project at a Glance
 
 | Item | Detail |
@@ -151,6 +161,10 @@ fruits-image-detection/
 │   ├── 4.jpg
 │   └── pisang.jpg
 │
+├── screenshots/
+│   ├── training-label-boxing.png
+│   └── inference-result.png
+│
 ├── models/
 │   └── yolo26n_models.pt
 │
@@ -159,6 +173,7 @@ fruits-image-detection/
 │
 ├── inference.py
 ├── LICENSE
+├── README.md
 └── requirements.txt
 ```
 
