@@ -34,22 +34,24 @@ model**, hingga **inference menggunakan gambar lokal**.
 -   Export model ke Google Drive
 -   Inference lokal menggunakan `inference.py`
 
+------------------------------------------------------------------------
+
 ## 📊 Project at a Glance
 
-  Komponen               Detail
-  ---------------------- -----------------------------------
-  Task                   Object Detection
-  Model                  YOLO26n
-  Auto-labeler           YOLOv8s-WorldV2
-  Dataset                Fruits by YOLO - Fruits Detection
-  Number of Classes      9
-  Image Size             640 × 640
-  Epochs                 25
-  Batch Size             16
-  Validation mAP50       **89.6%**
-  Validation mAP50-95    **83.5%**
-  Training Environment   Google Colab
-  Local Inference        Python + OpenCV
+  Item                      Detail
+  ------------------------- -----------------------------------
+  **Task**                  Object Detection
+  **Model**                 YOLO26n
+  **Auto-labeler**          YOLOv8s-WorldV2
+  **Dataset**               Fruits by YOLO - Fruits Detection
+  **Classes**               9
+  **Image Size**            640 × 640
+  **Epochs**                25
+  **Batch Size**            16
+  **Validation mAP50**      **89.6%**
+  **Validation mAP50-95**   **83.5%**
+  **Training**              Google Colab
+  **Inference**             Python + OpenCV
 
 > **Catatan:** Metric di atas berasal dari hasil validation run yang
 > tersedia pada project. Karena sebagian label dibuat melalui
@@ -60,27 +62,22 @@ model**, hingga **inference menggunakan gambar lokal**.
 
 ## 🗂️ Dataset
 
-Dataset yang digunakan:
+**Dataset:** [Fruits by YOLO - Fruits
+Detection](https://www.kaggle.com/datasets/kapturovalexander/fruits-by-yolo-fruits-detection)
 
-**Fruits by YOLO - Fruits Detection**
-
-Sumber:
-
-https://www.kaggle.com/datasets/kapturovalexander/fruits-by-yolo-fruits-detection
-
-Dataset diakses melalui:
+Dataset diakses melalui KaggleHub:
 
 ``` python
 DATASET_HANDLE = "kapturovalexander/fruits-by-yolo-fruits-detection"
 ```
 
-Dataset memiliki tiga split utama:
+### Dataset Split
 
-``` text
-train
-valid
-test
-```
+  Split     Fungsi
+  --------- --------------------------------------------
+  `train`   Training model
+  `valid`   Validation model
+  `test`    Dataset untuk testing/inference evaluation
 
 Nama class dibaca dari `data.yaml`. Project juga menyediakan fallback
 class names apabila `data.yaml` tidak dapat dibaca.
@@ -101,45 +98,52 @@ class names apabila `data.yaml` tidak dapat dibaca.
 
 ------------------------------------------------------------------------
 
-## 🛠️ Teknologi
+## 🛠️ Teknologi & Tools
 
-  Komponen               Teknologi
-  ---------------------- --------------------
-  Programming Language   Python
-  Object Detection       Ultralytics YOLO
-  Training Model         YOLO26n
-  Auto-labeling          YOLOv8s-WorldV2
-  Computer Vision        OpenCV
-  Deep Learning          PyTorch
-  Dataset Download       KaggleHub
-  Data Processing        Pandas
-  YAML Processing        PyYAML
-  Visualization          Matplotlib
-  Environment            Anaconda
-  IDE                    Visual Studio Code
-  Training               Google Colab
-  Storage                Google Drive
-  Dataset Source         Kaggle
+  Kategori                Teknologi / Tools    Penggunaan
+  ----------------------- -------------------- -------------------------------
+  **Programming**         Python               Pengembangan project
+  **Object Detection**    Ultralytics YOLO     Training & inference
+  **Training Model**      YOLO26n              Model utama
+  **Auto-labeling**       YOLOv8s-WorldV2      Pembuatan bounding box
+  **Computer Vision**     OpenCV               Image processing & inference
+  **Deep Learning**       PyTorch              Backend deep learning
+  **Data Processing**     Pandas               Pengolahan data
+  **YAML Processing**     PyYAML               Membaca & membuat `data.yaml`
+  **Visualization**       Matplotlib           Quality Control
+  **Dataset**             Kaggle + KaggleHub   Sumber & download dataset
+  **Environment**         Anaconda             Python environment
+  **IDE**                 Visual Studio Code   Development
+  **Training Platform**   Google Colab         Model training
+  **Storage**             Google Drive         Penyimpanan model
 
 ------------------------------------------------------------------------
 
 ## 💻 Spesifikasi Sistem Pengerjaan
 
-  Spesifikasi            Detail
-  ---------------------- ---------------------------------
-  Device                 Lenovo IdeaPad Slim 14
-  Operating System       Windows 11
-  Processor              Intel Core i5 Generasi ke-11
-  RAM                    16 GB
-  Local GPU              Tidak menggunakan GPU dedicated
-  Environment Manager    Anaconda
-  Terminal               Anaconda Prompt
-  Code Editor            Visual Studio Code
-  Training Environment   Google Colab
-  Model                  YOLO26n
-  Image Size             640 × 640
-  Epochs                 25
-  Batch Size             16
+### Local Development
+
+  Komponen                  Spesifikasi
+  ------------------------- ---------------------------------
+  **Device**                Lenovo IdeaPad Slim 14
+  **Operating System**      Windows 11
+  **Processor**             Intel Core i5 Generasi ke-11
+  **RAM**                   16 GB
+  **Local GPU**             Tidak menggunakan GPU dedicated
+  **Environment Manager**   Anaconda
+  **Terminal**              Anaconda Prompt
+  **Code Editor**           Visual Studio Code
+
+### Training Configuration
+
+  Parameter                        Value
+  ----------------------- --------------
+  **Training Platform**     Google Colab
+  **Model**                      YOLO26n
+  **Image Size**               640 × 640
+  **Epochs**                          25
+  **Batch Size**                      16
+  **Patience**                        15
 
 > **Catatan:** Training dilakukan menggunakan Google Colab karena
 > komputer lokal tidak menggunakan GPU dedicated. Model hasil training
@@ -171,30 +175,25 @@ fruits-image-detection/
 └── README.md
 ```
 
-### Penjelasan
+### File & Folder
 
-**`images/`**\
-Berisi gambar yang digunakan sebagai input inference.
+  -----------------------------------------------------------------------
+  Path                                Keterangan
+  ----------------------------------- -----------------------------------
+  `images/`                           Gambar input untuk inference
 
-**`models/`**\
-Berisi model hasil training. Model utama:
+  `models/`                           Menyimpan model hasil training
 
-``` text
-yolo26n_models.pt
-```
+  `notebooks/`                        Notebook untuk dataset preparation,
+                                      auto-labeling, QC, training,
+                                      validation, dan export
 
-**`notebooks/`**\
-Berisi notebook Google Colab untuk dataset preparation, auto-labeling,
-QC, training, validation, dan export model.
+  `inference.py`                      Script object detection lokal
 
-**`inference.py`**\
-Script untuk menjalankan object detection pada komputer lokal.
+  `requirements.txt`                  Dependencies Python project
 
-**`requirements.txt`**\
-Daftar package Python yang diperlukan untuk menjalankan project.
-
-**`tutorial.txt`**\
-Berisi panduan tambahan penggunaan project.
+  `LICENSE`                           File lisensi project
+  -----------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
@@ -254,13 +253,15 @@ conda activate fruits_detection
 pip install -r requirements.txt
 ```
 
-Verifikasi Ultralytics:
+### 3. Verifikasi Instalasi
+
+**Ultralytics:**
 
 ``` bash
 python -c "import ultralytics; print(ultralytics.__version__)"
 ```
 
-Verifikasi OpenCV:
+**OpenCV:**
 
 ``` bash
 python -c "import cv2; print(cv2.__version__)"
@@ -272,13 +273,13 @@ python -c "import cv2; print(cv2.__version__)"
 
 Notebook menggunakan Google Colab untuk proses training.
 
-Library utama:
+### Install Library
 
 ``` python
 !pip install -q -U ultralytics kagglehub pyyaml pandas
 ```
 
-Dataset diunduh menggunakan:
+### Download Dataset
 
 ``` python
 import kagglehub
@@ -298,7 +299,7 @@ IMG_SIZE = 640
 BATCH_SIZE = 16
 ```
 
-Training dilakukan dengan:
+### Training
 
 ``` python
 model.train(
@@ -326,13 +327,14 @@ LABELER_MODEL = "yolov8s-worldv2.pt"
 Model digunakan untuk menghasilkan bounding box objek buah dalam format
 YOLO.
 
-Konfigurasi:
+### Konfigurasi Auto-Labeling
 
-``` python
-CONF_THRESHOLD = 0.20
-LABELER_IMGSZ = 480
-BATCH_SIZE_LABELING = 4
-```
+  Parameter                                   Value
+  -------------------------- ----------------------
+  **Labeler Model**            `yolov8s-worldv2.pt`
+  **Confidence Threshold**                   `0.20`
+  **Labeling Image Size**                     `480`
+  **Labeling Batch Size**                       `4`
 
 Informasi class dari `_classes.csv` digunakan untuk membantu menentukan
 class yang benar pada masing-masing gambar.
@@ -341,7 +343,7 @@ Jika sebuah class diketahui terdapat pada gambar tetapi tidak berhasil
 ditemukan oleh labeler, project menggunakan **fallback full-image
 bounding box**.
 
-Konfigurasi device:
+### Device Configuration
 
 ``` python
 USE_GPU = torch.cuda.is_available()
@@ -393,15 +395,16 @@ names:
 Notebook menyediakan fungsi `quick_qc()` untuk mengambil sample gambar
 dan menampilkan bounding box hasil auto-labeling.
 
-Contoh:
-
 ``` python
 quick_qc("train", n=6)
 ```
 
-QC dilakukan untuk memeriksa secara visual apakah bounding box hasil
-auto-labeling sudah berada pada objek yang sesuai sebelum proses
-training.
+QC digunakan untuk:
+
+-   memeriksa posisi bounding box;
+-   memeriksa class hasil auto-labeling;
+-   menemukan label yang tidak sesuai;
+-   melakukan pemeriksaan visual sebelum training.
 
 ------------------------------------------------------------------------
 
@@ -413,12 +416,14 @@ Setelah training selesai, model divalidasi menggunakan:
 metrics = model.val()
 ```
 
-Metric utama:
+### Evaluation Metrics
 
--   **Precision**
--   **Recall**
--   **mAP50**
--   **mAP50-95**
+  Metric          Keterangan
+  --------------- --------------------------------------------
+  **Precision**   Proporsi prediksi positif yang benar
+  **Recall**      Proporsi objek yang berhasil terdeteksi
+  **mAP50**       Mean Average Precision pada IoU 0.50
+  **mAP50-95**    Mean Average Precision pada IoU 0.50--0.95
 
 Hasil dapat ditampilkan dengan:
 
@@ -429,12 +434,14 @@ print("mAP50-95:", metrics.box.map)
 
 ### Validation Result
 
-  Metric           Result
-  ----------- -----------
-  Precision     **89.3%**
-  Recall        **84.1%**
-  mAP50         **89.6%**
-  mAP50-95      **83.5%**
+  Metric               Result
+  --------------- -----------
+  **Precision**     **89.3%**
+  **Recall**        **84.1%**
+  **mAP50**         **89.6%**
+  **mAP50-95**      **83.5%**
+
+**Validation dataset:** 187 images, 248 instances.
 
 ### Per-Class Validation Result
 
@@ -450,8 +457,6 @@ print("mAP50-95:", metrics.box.map)
   Sugerapple         94.8%   100.0%   99.5%      99.5%
   Watermelon         94.6%    79.1%   94.9%      92.3%
 
-**Validation dataset:** 187 images, 248 instances.
-
 > **Evaluation note:** Angka di atas merupakan hasil **validation** dari
 > run yang tersedia. Training metrics dan independent test metrics tidak
 > dicantumkan sebagai angka karena tidak tersedia pada output evaluasi
@@ -461,19 +466,27 @@ print("mAP50-95:", metrics.box.map)
 
 ## 📦 Model
 
-Bobot terbaik setelah training:
+### Model Training
 
 ``` text
 best.pt
 ```
 
-Kemudian model disimpan dengan nama:
+Model kemudian disimpan dengan nama:
 
 ``` text
 yolo26n_models.pt
 ```
 
-### Google Drive
+### Model Location
+
+**Local project:**
+
+``` text
+models/yolo26n_models.pt
+```
+
+**Google Drive:**
 
 ``` text
 MyDrive/
@@ -481,12 +494,6 @@ MyDrive/
     └── Fruits Detection (Object Detection)/
         └── models/
             └── yolo26n_models.pt
-```
-
-Model kemudian digunakan oleh inference lokal melalui:
-
-``` python
-MODEL_PATH = "models/yolo26n_models.pt"
 ```
 
 ------------------------------------------------------------------------
@@ -499,35 +506,41 @@ Inference dapat dijalankan secara lokal menggunakan:
 inference.py
 ```
 
-Pastikan struktur file:
+### Input Images
+
+``` text
+images/
+├── 1.jpg
+├── 2.jpg
+├── 3.jpg
+├── 4.jpg
+└── pisang.jpg
+```
+
+### Model
 
 ``` text
 models/
 └── yolo26n_models.pt
-
-images/
-└── 2.jpg
 ```
 
-Kemudian jalankan:
+### Run
 
 ``` bash
 python inference.py
 ```
 
-Confidence threshold:
-
-``` python
-CONF_THRESHOLD = 0.4
-```
-
-Contoh konfigurasi:
+### Inference Configuration
 
 ``` python
 MODEL_PATH = "models/yolo26n_models.pt"
 IMAGE_PATH = "images/2.jpg"
 CONF_THRESHOLD = 0.4
+```
 
+Contoh:
+
+``` python
 model = YOLO(MODEL_PATH)
 
 result = model.predict(
@@ -565,18 +578,18 @@ MyDrive/Projek/Fruits Detection (Object Detection)/models/yolo26n_models.pt
 
 ## ⚠️ Keterbatasan
 
-1.  Training dilakukan di Google Colab karena komputer lokal tidak
+-   Training dilakukan di Google Colab karena komputer lokal tidak
     menggunakan GPU dedicated.
-2.  Waktu training dapat berbeda tergantung resource GPU Google Colab
+-   Waktu training dapat berbeda tergantung resource GPU Google Colab
     yang tersedia.
-3.  Hasil auto-labeling bergantung pada kemampuan model
+-   Hasil auto-labeling bergantung pada kemampuan model
     `yolov8s-worldv2`.
-4.  Fallback bounding box digunakan ketika class diketahui dari
+-   Fallback bounding box digunakan ketika class diketahui dari
     `_classes.csv`, tetapi objek tidak berhasil ditemukan oleh labeler.
-5.  Metric dapat berbeda apabila proses training dijalankan kembali.
-6.  Versi Python, PyTorch, CUDA, dan Ultralytics dapat memengaruhi
+-   Metric dapat berbeda apabila proses training dijalankan kembali.
+-   Versi Python, PyTorch, CUDA, dan Ultralytics dapat memengaruhi
     kompatibilitas serta performa.
-7.  Karena sebagian label diperoleh melalui proses auto-labeling, hasil
+-   Karena sebagian label diperoleh melalui proses auto-labeling, hasil
     validation tidak dapat dianggap sebagai evaluasi terhadap
     ground-truth manual yang sepenuhnya independen.
 
@@ -596,7 +609,3 @@ Project / notebook dibuat pada:
 -   LinkedIn: https://www.linkedin.com/in/puteriazli
 -   Kaggle: https://www.kaggle.com/puteriameliaazli
 -   YouTube: https://www.youtube.com/@putericoding
-
-------------------------------------------------------------------------
-
-**Fruits Image Detection · YOLO26n · Python**
