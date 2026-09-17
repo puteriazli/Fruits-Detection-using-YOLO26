@@ -1,0 +1,7 @@
+ultralytics
+kagglehub
+PyYAML
+pandas
+torch
+opencv-python
+matplotlib
